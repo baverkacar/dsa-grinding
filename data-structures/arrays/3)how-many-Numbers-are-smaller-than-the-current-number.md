@@ -1,32 +1,6 @@
 # Question Link
 https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/
 
-# Intuition
-The simplest solution that came to my mind was using brute force with nested loops. For each element, I could compare it with every other element and count how many numbers are smaller. But this approach would take O(n²) time.
-
-After that, I thought about using Sorting with a HashMap. Sorting helps to understand the order of elements and how many smaller numbers exist before a given number.
-
-If the number range is small (like 0 to 100), another optimal solution is using Counting Sort. It counts the frequency of each number and uses prefix sum to calculate how many numbers are smaller than the current one.
-
----
-
-# Approach
-### Approach 1 → Sorting + HashMap
-- Clone the original array and sort it.
-- Create a HashMap to store:  
-  *key* → number, *value* → index of its first appearance in sorted array.
-- Iterate the original array and for each number, use the map to get how many numbers are smaller.
-
----
-
-### Approach 2 → Counting Sort
-- Create a count array of size 101 (because 0 <= nums[i] <= 100).
-- Count the frequency of each number.
-- Create a prefix sum of the count array to know how many numbers are smaller than each number.
-- Iterate the original array and use the count array to fill the result.
-
----
-
 # Complexity
 
 | Approach | Time Complexity | Space Complexity |
