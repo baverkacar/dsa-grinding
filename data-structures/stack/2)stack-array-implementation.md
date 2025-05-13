@@ -26,7 +26,7 @@ class Stack {
             throw new RuntimeException("Stack is empty");
         }
         return stackArray[top--];
-    }
+    } 
 
     // Peek at the top element of the stack
 
