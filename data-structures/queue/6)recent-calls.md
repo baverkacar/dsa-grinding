@@ -14,8 +14,9 @@ class RecentCounter {
         }
         queue.offerLast(t);
         return queue.size();
-        
     }
 }
 ```
+
+
 
