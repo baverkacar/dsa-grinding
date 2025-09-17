@@ -2,6 +2,9 @@
 https://leetcode.com/problems/contains-duplicate/
 
 # Code
+
+Java:
+
 ```java []
 class Solution {
     public boolean containsDuplicate(int[] nums) {
@@ -17,6 +20,20 @@ class Solution {
 }
 ```
 
+Golang:
+
+```go []
+func containsDuplicate(nums []int) bool {
+    seen := make(map[int]struct{})
+    for _, num := range nums {
+        if _, exists := seen[num]; exists {
+            return true
+        }
+        seen[num] = struct{}{}
+    }
+    return false
+}
+```
 # Complexity
 - Time complexity: O(n)
   We iterate through the array once, and each HashSet operation (add / contains) takes O(1) on average.
