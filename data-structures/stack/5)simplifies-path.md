@@ -28,6 +28,31 @@ class Solution {
 }
 ```
 
+Golang:
+```go
+func simplifyPath(path string) string {
+	parts := strings.Split(path, "/")
+
+	var stack []string
+
+	for _, part := range parts {
+		if part == ".." {
+			if len(stack) > 0 {
+				stack = stack[:len(stack)-1] // POP
+			}
+		} else if part != "" && part != "." {
+			stack = append(stack, part) // push
+		}
+	}
+
+	if len(stack) == 0 {
+		return "/"
+	}
+
+	return "/" + strings.Join(stack, "/")
+}
+```
+
 
 Time Complexity: O(n) - where n is the length of the input path. We traverse the path once to split it into parts and then again to build the simplified path.
 Space Complexity: O(n) - in the worst case, we might store all parts of the path in the stack.

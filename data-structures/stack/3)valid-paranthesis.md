@@ -25,5 +25,39 @@
     }
 ```
 
+Golang:
+```go
+func isValid(s string) bool {
+    n := len(s)
+    if n%2 == 1 {
+        return false // odd-length strings can't be valid
+    }
+
+    stack := make([]rune, n)
+    top := -1
+
+    for _, c := range s {
+        if c == '(' {
+            top++
+            stack[top] = ')'
+        } else if c == '{' {
+            top++
+            stack[top] = '}'
+        } else if c == '[' {
+            top++
+            stack[top] = ']'
+        } else {
+            if top == -1 || stack[top] != c {
+                return false
+            }
+            top--
+        }
+    }
+
+    return top == -1
+}
+```
+
+
 Time Complexity: O(n) – because we traverse the string once.
 Space Complexity: O(n) – because we use a stack to store the closing brackets.
