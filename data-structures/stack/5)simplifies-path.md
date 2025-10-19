@@ -9,7 +9,7 @@ class Solution {
 
         for(String part : parts) {
             if (part.equals("..")) {
-                if(!pathStack.isEmpty()) pathStack.pop();
+                if(!pathStack.isEmpty()) {pathStack.pop();
             } 
             else if (!part.equals("") && !part.equals(".")) {
                 pathStack.push(part);
